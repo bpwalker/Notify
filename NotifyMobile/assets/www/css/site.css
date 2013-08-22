@@ -1,0 +1,415 @@
+@media screen and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 1){
+	html , body{
+		line-height: 1;
+		background-color: #f5f5f5;
+	}
+	
+	* {
+	   margin: 0; 
+	   padding: 0;
+	}
+	
+	.tipsy { padding: 5px; font-size: 10px; position: absolute; z-index: 100000; }
+	.tipsy-inner { padding: 5px 8px 4px 8px; background-color: rgba(236,0,0,.85); color: white; max-width: 200px; text-align: center; }
+	.tipsy-inner { border-radius: 3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+	.tipsy-arrow { position: absolute; background: url('../_images/tipsy.gif') no-repeat top left; width: 9px; height: 5px; visibility: hidden}
+	.tipsy-n .tipsy-arrow { top: 0; left: 50%; margin-left: -4px; }
+	.tipsy-nw .tipsy-arrow { top: 0; left: 10px; }
+	.tipsy-ne .tipsy-arrow { top: 0; right: 10px; }
+	.tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -4px; background-position: bottom left; }
+	.tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; background-position: bottom left; }
+	.tipsy-se .tipsy-arrow { bottom: 0; right: 10px; background-position: bottom left; }
+	.tipsy-e .tipsy-arrow { top: 50%; margin-top: -4px; right: 0; width: 5px; height: 9px; background-position: top right; }
+	.tipsy-w .tipsy-arrow { top: 50%; margin-top: -4px; left: 0; width: 5px; height: 9px; }
+	
+	#login-form {
+		display: none;
+		position: fixed;
+		width: 400px;
+		height: 200px;
+		padding: 10px 20px 10px 20px;
+		border-radius: 15px;
+		-moz-border-radius: 15px;
+		box-shadow: 5px 5px 10px #888;
+		-moz-box-shadow: 5px 5px 10px #888;
+		top: 50%;
+		left: 50%;
+		margin-top: -120px;
+		margin-left: -220px;
+		border: 1px solid #cccccc;
+		background: #eeeeee;
+		background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc));
+		background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+		background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+		background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+		background: linear-gradient(to bottom,  #eeeeee 0%,#cccccc 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+	}
+	  
+	#login-form h2{
+		color: black;
+		text-align: center;
+		margin-bottom: 30px;
+		margin-top: 10px;
+	}
+	
+	form#login .label{
+		display: block;
+		clear: left;
+		float: left;
+		width: 30%;
+		text-align: right;
+		padding: 4px 15px 0 0;
+		text-transform: uppercase;	
+		font-weight: bold;
+		font-size: 20px;
+		vertical-align: middle;
+	}
+	
+	form#login input{
+		font-size: 20px;
+		width: 60%;
+	}
+	
+	form#login input[id="login_submit"]{
+		font-size: 16px;
+		padding: 5px 10px 5px 10px;
+		float: right;
+		margin-top: 10px;
+		margin-right: 40px;
+		width: 60px;
+	}
+	
+	form#login div{
+		padding-bottom: 10px;	
+	}
+	
+	.header {
+		position: absolute; 
+		float: left;
+		background-color: #04356c; 
+		width: 100%;
+		height: 50px;
+		display: table;
+	}
+	
+	#nav {
+		padding: 0px 20px 0px 20px;
+		display: table-cell;
+		vertical-align: middle;
+	}
+	
+	#nav ul, #nav li {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		display: inline-block;
+		float: right;
+	}
+	
+	#nav li {
+		margin-left: 20px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+	#nav li a{
+		color: white;
+		text-decoration: none;
+		font: 16px'UbuntuMonoRegular', Arial, sans-serif;
+		letter-spacing: 1px;
+		padding: 3px 5px 4px 5px;
+	}
+	
+	#nav a:hover {
+		background-color: #555;
+		color: white;
+	}
+	
+	#search-container{
+		display: none;
+		position: relative;
+		width: 80%;
+		height: 40px;
+		top: 100px;
+		margin: auto;
+		padding: 5px 10px 5px 10px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+		-moz-border-top-left-radius: 5px;
+		-moz-border-top-right-radius: 5px;
+		-moz-border-bottom-left-radius: 0px;
+		-moz-border-bottom-right-radius: 0px;
+		box-shadow: 5px 5px 10px #888;
+		-moz-box-shadow: 5px 5px 10px #888;
+		border: 1px solid #cccccc;
+		background: #cccccc;
+	}
+	
+	form#search .label{
+		display: block;
+		clear: left;
+		float: left;
+		text-align: right;
+		margin: 8px 15px 0 0;
+		text-transform: uppercase;	
+		font-weight: bold;
+		font-size: 14px;
+		vertical-align: middle;
+	}
+	
+	form#search input{
+		font-size: 14px;
+		width: 80%;
+	}
+	
+	.main-container{
+		display: none;
+		position: relative;
+		width: 80%;
+		top: 100px;
+		margin: auto;
+		padding: 10px 10px 10px 10px;
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		-moz-border-top-left-radius: 0px;
+		-moz-border-top-right-radius: 0px;
+		-moz-border-bottom-left-radius: 5px;
+		-moz-border-bottom-right-radius: 5px;
+		box-shadow: 5px 5px 10px #888;
+		-moz-box-shadow: 5px 5px 10px #888;
+		border: 1px solid #cccccc;
+		background: #eeeeee;
+		background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc));
+		background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+		background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+		background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+		background: linear-gradient(to bottom,  #eeeeee 0%,#cccccc 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+	}
+	
+	.dashboard {
+		border: none;
+		width: 100%;
+		table-layout:fixed;
+	}
+	
+	.menu_items th,td{
+		text-align: center;
+		width: 25%;
+		min-height: 80px;
+		height: 80px;
+	}
+	
+	.menu_items_search th,td{
+		text-align: center;
+		width: 25%;
+		min-height: 80px;
+		height: 80px;
+	}
+	
+	.menu_enlarged th,td{
+		text-align: center;
+		width: 80%;
+		min-height: 80px;
+		height: 80px;
+	}
+	
+	.main-title {
+		text-align: center;
+		font: 32px 'MolotRegular', Arial, sans-serif;
+		letter-spacing: 4px;
+		color: black;
+	}
+	
+	.content {
+		float: top;
+	}
+	
+	.item_list {
+		position: relative;
+		max-height: 150px;
+		overflow: auto;
+	}
+	
+	.item_list ul{
+		display: none;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		width: 98%;
+		text-align: left;
+		border: 1px solid #ccc;
+	}
+	
+	.item_list li{
+		padding: 5px 5px;
+		height: 15px;
+		border-bottom: 1px solid #ccc;
+		border-top: 1px solid #fff;
+		background-color: #fafafa;
+	}
+	
+	.item_list li:active{
+		padding: 5px 5px;
+		height: 15px;
+		border-bottom: 1px solid #ccc;
+		border-top: 1px solid #fff;
+		background-color: #ccc;
+	}
+	
+	.item_list a{
+		text-decoration: none;
+		font-size: 12px;
+		vertical-align: middle;
+		color: black;
+		width: 100%;
+	}
+	
+	.nav_arrow , .nav_arrow_detail{
+		position: absolute;
+		float: top;
+		margin-top: 10px;
+	}
+	
+	.home_icon{
+		position: absolute;
+		float: right;
+		left: 96%;
+		margin-top: 10px;
+	}
+	
+	#device_icon {
+		content: url('../images/mdpi/computer_icon_normal.png');
+		margin-top: 10px;
+	}
+	
+	#call_icon {
+		content: url('../images/mdpi/phone_icon_normal.png');
+		margin-top: 10px;
+	}
+	
+	#person_icon {
+		content: url('../images/mdpi/person_icon_normal.png');
+		margin-top: 10px;
+	}
+	
+}
+/* Generated by Font Squirrel (http://www.fontsquirrel.com) on January 9, 2013 10:04:53 PM America/New_York */
+
+@font-face {
+    font-family: 'firsttestRegular';
+    src: url('fonts/Forque-webfont.eot');
+    src: url('fonts/Forque-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Forque-webfont.woff') format('woff'),
+         url('fonts/Forque-webfont.ttf') format('truetype'),
+         url('fonts/Forque-webfont.svg#firsttestRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MolotRegular';
+    src: url('fonts/Molot-webfont.eot');
+    src: url('fonts/Molot-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Molot-webfont.woff') format('woff'),
+         url('fonts/Molot-webfont.ttf') format('truetype'),
+         url('fonts/Molot-webfont.svg#MolotRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'UbuntuMonoRegular';
+    src: url
+
+('UbuntuMono-R-webfont.eot');
+    src: url('fonts/UbuntuMono-R-webfont.eot?#iefix') format
+
+('embedded-opentype'),
+         url('fonts/UbuntuMono-R-webfont.woff') format('woff'),
+         
+
+url('fonts/UbuntuMono-R-webfont.ttf') format('truetype'),
+         url('fonts/UbuntuMono-R-
+
+webfont.svg#UbuntuMonoRegular') format('svg');
+    font-weight: normal;
+    font-style: 
+
+normal;
+
+}
+
+@font-face {
+    font-family: 'UbuntuMonoItalic';
+    src: url('fonts/UbuntuMono-RI-
+
+webfont.eot');
+    src: url('fonts/UbuntuMono-RI-webfont.eot?#iefix') format('embedded-opentype'),
+ 
+
+        url('fonts/UbuntuMono-RI-webfont.woff') format('woff'),
+         url('fonts/UbuntuMono-RI-
+
+webfont.ttf') format('truetype'),
+         url('fonts/UbuntuMono-RI-webfont.svg#UbuntuMonoItalic') 
+
+format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'UbuntuMonoBold';
+    src: url('fonts/UbuntuMono-B-webfont.eot');
+    src: url('fonts/UbuntuMono-B-
+
+webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/UbuntuMono-B-webfont.woff') 
+
+format('woff'),
+         url('fonts/UbuntuMono-B-webfont.ttf') format('truetype'),
+         url
+
+('fonts/UbuntuMono-B-webfont.svg#UbuntuMonoBold') format('svg');
+    font-weight: normal;
+    
+
+font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'UbuntuMonoBoldItalic';
+    src: url
+
+('fonts/UbuntuMono-BI-webfont.eot');
+    src: url('fonts/UbuntuMono-BI-webfont.eot?#iefix') format
+
+('embedded-opentype'),
+         url('fonts/UbuntuMono-BI-webfont.woff') format('woff'),
+         
+
+url('fonts/UbuntuMono-BI-webfont.ttf') format('truetype'),
+         url('fonts/UbuntuMono-BI-
+
+webfont.svg#UbuntuMonoBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: 
+
+normal;
+
+}
+
+
+

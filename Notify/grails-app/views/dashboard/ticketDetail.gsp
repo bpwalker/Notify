@@ -1,0 +1,4 @@
+<div class="field"><label for="problem">Problem:</label><span class="fill"><g:textField name="problem" value="${ticket.problem}"/></span></div>
+<div class="field"><label for="person">Person:</label><span class="fill"><g:textField name="person" value="${ticket.person.getFullName()}"/></span></div>
+<div class="field"><label for="device">Device:</label><span class="fill"><g:textField name="device" value="${ticket.device.name}"/></span></div>
+<div class="field"><label for="description">Description:</label><span class="fill"><g:textArea name="description" value="${ticket.description}"/></span></div>

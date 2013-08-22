@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, 
+height=device-height, initial-scale=1.0, maximum-scale=1.0, 
+target-densityDpi=device-dpi" />
+<link href="css/site_high.css" rel="stylesheet"/>
+<link href="css/spinner.css" rel="stylesheet">
+<script src="js/cordova-2.3.0.js"></script>
+<script src="js/api.js"></script>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/softkeyboard.js"></script>
+<script>
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function backKeyDown(){
+	navigator.app.exitApp();
+}
+
+function checkLocalStorage(){
+	var temp = window.localStorage.getItem("credentials");
+	if (temp != null){
+		var cred = JSON.parse(temp);
+		$('#username').val(cred.userName);
+		$('#password').val(cred.password);
+	}
+}
+
+function showHideSpinner(show){
+	var spinner = $('#spinner_container');
+	spinner.css('width',window.innerWidth);
+	spinner.css('height',window.innerHeight);
+	
+	if (show){
+		  spinner.css('visibility','visible');
+	}else{
+		spinner.css('visibility','hidden');
+	}
+}
+
+function onDeviceReady(){
+	document.addEventListener('offline', function(){
+		alert('Cannot connect to the internet.');
+	}, false);
+	checkLocalStorage();
+	document.addEventListener("backbutton", backKeyDown, true);
+	navigator.splashscreen.hide();
+	
+	$(document).ajaxStart(function(){
+		showHideSpinner(true);
+	}).ajaxStop(function(){
+		showHideSpinner(false);
+	});
+	$('#spinner_container').click(function(e){
+		e.stopPropagation();
+		return false;
+	});
+	
+	var login = $('#login_form');
+	var username = $('#username');
+	var password = $('#password');
+	
+	
+	login.hide().slideDown(300,function(){
+		$('input:first').focus();
+	});
+	
+	// test
+	login.submit(function(){
+		$('.error').hide();
+		var softkeyboard = window.cordova.plugins.SoftKeyBoard;
+		softkeyboard.hide();
+		validate();
+		return false;
+	});
+	
+	function validate(){
+		
+		if (username.val() == '' || password.val() == '') {
+			$('.error').fadeIn(1000);
+			return false;
+		}
+		var cred = {'userName':username.val(),'password':password.val()};
+		window.localStorage.setItem("credentials",JSON.stringify(cred));
+		
+		loginAPI(function(response){
+			window.localStorage.setItem("currentUser",response);
+			login.slideUp(300,function(){
+				window.location = 'home.html';
+				
+			});
+		}, function(response){
+			alert(response);
+		});
+		
+	}
+}
+</script>
+</head>
+<body>
+<div class="header">
+	<div id="nav">
+	</div>
+</div>
+<div id="spinner_container">
+	<div class="spinner" id="spinner">
+	    <div class="bar1"></div>
+	    <div class="bar2"></div>
+	    <div class="bar3"></div>
+	    <div class="bar4"></div>
+	    <div class="bar5"></div>
+	    <div class="bar6"></div>
+	    <div class="bar7"></div>
+	    <div class="bar8"></div>
+	    <div class="bar9"></div>
+	    <div class="bar10"></div>
+	    <div class="bar11"></div>
+	    <div class="bar12"></div>
+	</div>
+</div>
+
+<div id="login_form">
+	<h2>LOGIN</h2>
+	<p class="error">Username and Password cannot be blank.</p>
+	<form action="#" id="login" autocomplete="on">
+		<div>
+			<label for="username" class="label">Username:</label>
+			<input name="username" type="text" id="username" title="Username cannot be blank.">
+		</div>
+		<div>
+			<label for="password" class="label" >Pasword:</label>
+			<input name="password" type="password" id="password" autocomplete="off" title="Password cannot be blank.">
+		</div>
+		<input type="submit" name="login_submit" id="login_submit" value="Login" >
+	</form>
+</div>
+</body>
+</html>

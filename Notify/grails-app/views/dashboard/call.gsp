@@ -1,0 +1,7 @@
+<div class="field"><label for="groupid">Group:</label><span class="fill"><g:textField name="groupid" value="${call.groupid.groupName}"/></span></div>
+<div class="field"><label for="callheader">Header:</label><span class="fill"><g:textField name="callheader" value="${call.header}"/></span></div>
+<div class="field"><label for="user">User:</label><span class="fill"><g:textField name="user" value="${call.user.getFullName()}"/></span></div>
+<div class="field"><label for="person">Person:</label><span class="fill"><input type="button" onclick="${remoteFunction(update:'detailView', action:'ajaxPerson', params:['person': call.person.id])}" name="person" value="${call.person.getFullName()}"/></span></div>
+<div class="field"><label for="device">Device:</label><span class="fill"><input type="button" onclick="${remoteFunction(update:'detailView', action:'ajaxDevice', params:['device': call.device.id])}" name="device" value="${call?.device?.name}"/></span></div>
+<div class="field"><label for="priority">Priority:</label><span class="fill"><g:textField name="priority" value="${call.getStatus()}"/></span></div>
+<div class="field"><label for="followUp">Follow Up:</label><span class="fill"><g:textField name="followUp" value="${call.followUp}"/></span></div>
