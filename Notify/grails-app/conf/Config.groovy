@@ -65,7 +65,7 @@ environments {
         grails.logging.jul.usebridge = true
     }
     production {
-		grails.serverURL = "https://notify-synapps.rhcloud.com"
+		grails.serverURL = ""
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
@@ -96,8 +96,8 @@ grails {
 	mail {
 	  host = "smtp.gmail.com"
 	  port = 465
-	  username = "gamesynctest@gmail.com"
-	  password = "g.sync.test"
+	  username = ""
+	  password = ""
 	  props = ["mail.smtp.auth":"true",
 			   "mail.smtp.socketFactory.port":"465",
 			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",

@@ -15,16 +15,16 @@ environments {
 		dataSource {
 			dbCreate = "create-drop"
 			url = "jdbc:mysql://localhost:3306/test?autoreconnect=true"
-			username = "root"
-			password = "ourcolony"
+			username = ""
+			password = ""
 		}
 	}
 	production {
 		dataSource {
 			dbCreate = "update"
-		    url = "jdbc:mysql://127.11.156.1:3306/notify"
-		    username = "adminzw86ArK"
-		    password = "zfcVQKkAxwVi"
+		    url = ""
+		    username = ""
+		    password = ""
 		}
 	}
 }
